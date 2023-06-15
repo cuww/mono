@@ -12,11 +12,19 @@
     "@types/node": "18.16.2",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
+    "ahooks": "^3.7.7",
+    "antd": "^5.4.6",
     "eslint": "8.39.0",
     "eslint-config-next": "13.3.1",
+    "jotai": "^2.0.4",
     "next": "13.3.1",
-    "react": "18.2.0",
+    "react": "^18.2.0",
     "react-dom": "18.2.0",
+    "react-intl": "^6.4.4",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@formatjs/ts-transformer": "^3.13.3",
+    "babel-plugin-import": "^1.13.6"
   }
 }
