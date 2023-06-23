@@ -2,14 +2,20 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
+  "workspaces": [
+    "packages/runtime-env",
+    "packages/core"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "prestart": "yarn cli env:build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "cli": "node ./console/index.mjs"
   },
   "dependencies": {
-    "@types/node": "18.16.2",
+    "@types/node": "^20.3.1",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "ahooks": "^3.7.7",
@@ -25,6 +31,7 @@
   },
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.13.3",
-    "babel-plugin-import": "^1.13.6"
+    "babel-plugin-import": "^1.13.6",
+    "chalk": "^5.2.0"
   }
 }

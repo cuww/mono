@@ -1,8 +1,7 @@
 import { atomWithStorage } from 'jotai/utils'
-import { UrlStorage } from './url'
-import { FROM_CURRENCY_URL_PARAM, TO_CURRENCY_URL_PARAM } from '../utils/url'
+import { UrlStorage } from '@@/core/storage/url'
 
-export enum BinanceCurrency {
+enum BinanceCurrency {
     BTC = 'BTC',
     USDT = 'USDT',
     ETH = 'ETH',
@@ -11,5 +10,16 @@ export enum BinanceCurrency {
     DOGE = 'DOGE',
 }
 
-export const fromCurrencyAtom = atomWithStorage(FROM_CURRENCY_URL_PARAM, ...UrlStorage(BinanceCurrency.BTC))
-export const toCurrencyAtom = atomWithStorage(TO_CURRENCY_URL_PARAM, ...UrlStorage(BinanceCurrency.USDT))
+const FROM_CURRENCY_URL_PARAM = 'fc';
+const TO_CURRENCY_URL_PARAM = 'tc';
+
+const fromCurrencyAtom = atomWithStorage(FROM_CURRENCY_URL_PARAM, ...UrlStorage(BinanceCurrency.BTC))
+const toCurrencyAtom = atomWithStorage(TO_CURRENCY_URL_PARAM, ...UrlStorage(BinanceCurrency.USDT))
+
+export {
+    BinanceCurrency,
+    FROM_CURRENCY_URL_PARAM,
+    TO_CURRENCY_URL_PARAM,
+    fromCurrencyAtom,
+    toCurrencyAtom,
+}

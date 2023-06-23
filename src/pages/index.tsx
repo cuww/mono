@@ -1,9 +1,10 @@
-import { HomeContainer } from '@/apps/domain/components/containers/home'
+import { CryptoRateContainer } from '@/apps/domain/boot'
 import { HomeLayout } from '@/layouts/home'
+import AppConfig from '@/config/app';
 import Head from 'next/head'
 
-
 export default function Home() {
+
   return (
     <>
       <Head>
@@ -13,7 +14,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <HomeLayout>
-        <HomeContainer />
+        <div>{AppConfig.NEXT_PUBLIC_WEBPACK}</div>
+        <CryptoRateContainer />
       </HomeLayout>
     </>
   )

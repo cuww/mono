@@ -1,1 +1,0 @@
-export * as ErrorsProvider from './errors';

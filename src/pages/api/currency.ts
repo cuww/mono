@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { Errors } from '@/config/errors';
+import { InvalidCurrencyPair } from '@/apps/domain/errors';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {
@@ -15,7 +15,8 @@ export default async function handler(
 
     if(data.code) {
         return res.status(500).json(
-            Errors.InvalidCurrencyPair.throw(data)
+            // @ts-ignore
+            InvalidCurrencyPair.throw(data)
         )
     }
 

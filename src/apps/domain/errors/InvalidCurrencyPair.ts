@@ -7,8 +7,7 @@ export class InvalidCurrencyPair extends Error {
 
     static throw(data: any) {
         return {
-            code: InvalidCurrencyPair.code,
-            message: "Invalid currency pair"
+            error: InvalidCurrencyPair.code,
         }
     }
 }

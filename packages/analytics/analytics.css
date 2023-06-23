@@ -1,0 +1,14 @@
+[data-analytics-event] {
+  /* outline: 2px solid red; */
+}
+
+[data-analytics-event]::before {
+  border: 2px solid red;
+  content: attr(data-analytics-event);
+  position: absolute;
+  top: -20px;
+  z-index: 1000;
+  font-size: 10px;
+  right: 0;
+  padding: 2px 5px;
+}

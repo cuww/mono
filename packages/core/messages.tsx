@@ -1,7 +1,17 @@
-import { DomainMessages } from "@/apps/domain/interface";
+import { App, getApps } from "./app";
 
+export const getMessages = () => {
+    return Object.values(getApps()).map((app: App) => {
+        return flatten(app.getMessages());
+    }).flat().reduce((acc: any, cur: any) => {
+        return {
+            ...acc,
+            ...cur,
+        }
+    }, {});
+}
 
-const flatten = (messages: any) => {
+export const flatten = (messages: any) => {
     var res: any = {};
 
     function handler(obj: any, current?: any) {
@@ -20,7 +30,3 @@ const flatten = (messages: any) => {
 
     return res;
 }
-
-export default {
-    ...flatten(DomainMessages),
-} as any

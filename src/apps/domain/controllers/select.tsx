@@ -1,5 +1,5 @@
 import { useAtom } from "jotai"
-import { LabelView } from "../views/string";
+import { LabelView } from "../views/label";
 
 export type IOptions = {
     labelRender?: any,    
