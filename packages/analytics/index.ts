@@ -17,13 +17,9 @@ export const trackEvent = (eventName: string, event: typeof AnalyticalEvent, fn:
 
 export const track = (event: typeof AnalyticalEvent, fn: Function) => {
     return async (...args: any) => {
-        try {
-            const payload = await fn(...args)
-            const instance = new event(payload);
-            EventsChannel.emit(instance.name, instance)
-        } catch (e) {
-            EventsChannel.emit('onError', e)
-        }
+        const payload = await fn(...args)
+        const instance = new event(payload);
+        EventsChannel.emit(instance.name, instance)
     }
 }
 

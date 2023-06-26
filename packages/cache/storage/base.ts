@@ -12,8 +12,4 @@ export abstract class Storage {
         throw new Error('Not implemented');
     }
 
-    getCacheKey(...args: any): string {
-        return args.join('_');
-    }
-
 }

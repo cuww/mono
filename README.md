@@ -4,7 +4,7 @@
 
 ## Introduction
 
-There are plenty of challenges we face day-to-day while developing front-end applications. It's hard to organize the architecture from scratch to make it clean and maintainable. Cuww is a powerful React framework built on top of Next.js, inspired by the Laravel framework for PHP. It aims to address these challenges by providing a structured and scalable architecture following the MVCS (Model-View-Control-Service) pattern.
+There are plenty of challenges we face day-to-day while developing front-end applications. It's hard to organize the architecture from scratch to make it clean and maintainable. Cuww is a powerful React framework built on top of Next.js, inspired by the top backend frameworks. It aims to address these challenges by providing a structured and scalable architecture following the MVCS (Model-View-Control-Service) pattern.
 
 ## Key Features
 

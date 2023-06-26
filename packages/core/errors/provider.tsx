@@ -6,7 +6,7 @@ export const ErrorsProviderContext = React.createContext({
     errors: []
 });
 
-export const ErrorsChannel = eventbus<{
+export const ErrorsChannel: any = eventbus<{
   onError: () => void
 }>()
 

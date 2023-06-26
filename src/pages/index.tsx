@@ -1,4 +1,4 @@
-import { CryptoRateContainer } from '@/apps/domain/boot'
+import { CryptoRateContainer } from '@/apps/domain'
 import { HomeLayout } from '@/layouts/home'
 import AppConfig from '@/config/app';
 import Head from 'next/head'

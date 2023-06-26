@@ -2,7 +2,7 @@ export { CryptoRateContainer } from './components/containers/crypto_rate'
 
 import { AppBootstrap } from '@@/core/app'
 import { Currency, Errors } from './messages'
-import { InvalidCurrencyPair } from './errors'
+import { InvalidCurrencyPair } from './errors/InvalidCurrencyPair'
 import { getCurrencyRateService } from './services/currency';
 
 export const DOMAIN_NAME = 'Domain';
