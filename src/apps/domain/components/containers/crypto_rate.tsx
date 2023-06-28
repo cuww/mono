@@ -6,20 +6,28 @@ import { fromCurrencyAtom, toCurrencyAtom } from "@/apps/domain/store/currency"
 import { useAtomValue } from "jotai"
 import { useDebounceEffect } from "ahooks"
 import { FormattedNumber } from "react-intl"
-import { InvalidCurrencyPair } from "@/apps/domain/errors/InvalidCurrencyPair"
 import { useQueryController } from "@@/core/controllers"
 import { track, trackEvent } from "@@/analytics"
 import { ButtonClick } from "@/apps/domain/events/analytics/ButtonClick"
+import { useInterfaceState } from "@@/core/controllers/ui"
+import { InvalidCurrencyPair } from "../../errors/InvalidCurrencyPair"
 
 export const CryptoRateContainer: FC = () => {
     const fromCurrencyValue = useAtomValue(fromCurrencyAtom)
     const toCurrencyValue = useAtomValue(toCurrencyAtom)
 
-    const { run, context, loading, data } = useQueryController(() => {
+    const { run, context, loading, data, error } = useQueryController(() => {
         return getCurrencyRateService(fromCurrencyValue, toCurrencyValue)
     }, [
         InvalidCurrencyPair
     ])
+
+    const { isSuccess, isError, isLoading, isEmpty } = useInterfaceState(
+        () => !!data,
+        () => loading,
+        () => !!error,
+        () => !!data,
+    );
 
     useDebounceEffect(
         () => {
@@ -32,7 +40,7 @@ export const CryptoRateContainer: FC = () => {
     );
 
     return (
-        <Spin spinning={loading}>
+        <Spin spinning={isLoading}>
             <Space size={10} direction={'vertical'}>
                 {context}
                 <Space>
@@ -44,9 +52,17 @@ export const CryptoRateContainer: FC = () => {
                         name: 'test',
                     }
                 })}>Test Event</Button>
-                {data?.price && <Alert message={
-                     <FormattedNumber value={data.price} currency="USD" style="currency" />
-                } />}
+                {isEmpty && (
+                    'No Data'
+                )}
+                {isError && (
+                    'Error'
+                )}
+                {isSuccess && (
+                    <Alert message={
+                        <FormattedNumber value={data.price} currency="USD" style="currency" />
+                   } />
+                )}
             </Space>
         </Spin>
     )

@@ -1,4 +1,4 @@
-import { env } from "@@/runtime-env"
+import { env } from '@cuww/runtime-env'
 
 export default {
     NEXT_PUBLIC_TEST: env('NEXT_PUBLIC_TEST', 'no value'),

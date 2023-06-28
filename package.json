@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "workspaces": [
-    "packages/runtime-env",
+    "packages/cuww-runtime-env",
     "packages/core"
   ],
   "scripts": {

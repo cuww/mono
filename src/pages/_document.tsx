@@ -1,4 +1,4 @@
-import { PublicRuntimeEnvProvider } from '@@/runtime-env'
+import { PublicRuntimeEnvProvider } from '@cuww/runtime-env'
 import { Html, Head, Main, NextScript } from 'next/document'
 
 export default function Document() {
