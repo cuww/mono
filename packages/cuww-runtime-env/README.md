@@ -23,3 +23,60 @@ or yarn:
 ```bash
 yarn add @cuww/runtime-env
 ```
+
+## Usage
+
+Follow these steps:
+
+### Configure next.config.js
+
+```javascript
+const { withRuntimeEnv } = require('@cuww/runtime-env/dist/next');
+
+const config = {
+  ...
+}
+
+module.exports = withRuntimeEnv(config)
+```
+
+### Configure _document.tsx
+
+Add `<PublicRuntimeEnvProvider/>` as in the example
+
+```typescript
+import { PublicRuntimeEnvProvider } from '@cuww/runtime-env'
+import { Html, Head, Main, NextScript } from 'next/document'
+
+export default function Document() {
+  return (
+    <Html lang="en">
+      <Head />
+      <PublicRuntimeEnvProvider />
+      <body>
+        <Main />
+        <NextScript />
+      </body>
+    </Html>
+  )
+}
+```
+
+### Work with environment variables
+
+Use `env` function to get variables value.
+Use `NEXT_PUBLIC_` prefix if you want to use this variable in runtime and get access from the client (not server variable).
+
+```
+import { env } from '@cuww/runtime-env'
+
+// Public variable available at a runtime and for everyone (not secure)
+env('NEXT_PUBLIC_VARIABLE_NAME', 'DefaultValue')
+
+// Public variable available at a runtime only for server
+env('VARIABLE_NAME', 'DefaultValue')
+```
+
+## License
+
+This project is licensed under the MIT License.
