@@ -1,6 +1,6 @@
 {
   "name": "@cuww/config",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -15,7 +15,9 @@
   "author": "Kir Burkhanov <lastonoga@gmail.com>",
   "scripts": {
     "build": "rm -rf ./dist & tsc -p tsconfig.json",
-    "publish": "yarn publish --access public"
+    "version:patch": "yarn version --patch",
+    "version:minor": "yarn version --minor",
+    "version:major": "yarn version --major"
   },
   "dependencies": {
     "react": "^18.2.0",
