@@ -2,24 +2,41 @@ const alwaysFalse = () => false;
 
 type StateHandler = () => boolean;
 
-export const useInterfaceState = (
-    isSuccessHandler: StateHandler = alwaysFalse,
-    isLoadingHandler: StateHandler = alwaysFalse,
-    isErrorHandler: StateHandler = alwaysFalse,
-    isEmptyHandler: StateHandler = alwaysFalse,
-    isPartialHandler: StateHandler = alwaysFalse,
-) => {
-    const isLoading = isLoadingHandler();
-    const isSuccess = !isLoading && isSuccessHandler();
-    const isError = !isLoading && !isSuccess && isErrorHandler();
-    const isEmpty = !isLoading && !isError && isEmptyHandler();
-    const isPartial = !isLoading && !isSuccess && isPartialHandler();
+type InterfaceProps = {
+    isSuccess?: StateHandler,
+    isLoading?: StateHandler,
+    isError?: StateHandler,
+    isEmpty?: StateHandler,
+    isPartial?: StateHandler,
+}
+
+type InterfaceHook = (props: InterfaceProps) => {
+    isSuccess: boolean,
+    isLoading: boolean,
+    isError: boolean,
+    isEmpty: boolean,
+    isPartial: boolean,
+}
+    
+
+export const useInterfaceState: InterfaceHook = ({
+    isSuccess = alwaysFalse,
+    isLoading = alwaysFalse,
+    isError = alwaysFalse,
+    isEmpty = alwaysFalse,
+    isPartial = alwaysFalse,
+}) => {
+    const isLoadingResult = isLoading();
+    const isSuccessResult = !isLoadingResult && isSuccess();
+    const isErrorResult = !isLoadingResult && !isSuccessResult && isError();
+    const isEmptyResult = !isLoadingResult && !isErrorResult && isEmpty();
+    const isPartialResult = !isLoadingResult && !isSuccessResult && isPartial();
 
     return {
-        isSuccess,
-        isLoading,
-        isError,
-        isEmpty,
-        isPartial,
+        isSuccess: isSuccessResult,
+        isLoading: isLoadingResult,
+        isError: isErrorResult,
+        isEmpty: isEmptyResult,
+        isPartial: isPartialResult,
     }
 }

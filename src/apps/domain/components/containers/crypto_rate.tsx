@@ -22,12 +22,12 @@ export const CryptoRateContainer: FC = () => {
         InvalidCurrencyPair
     ])
 
-    const { isSuccess, isError, isLoading, isEmpty } = useInterfaceState(
-        () => !!data,
-        () => loading,
-        () => !!error,
-        () => !!data,
-    );
+    const { isSuccess, isError, isLoading, isEmpty } = useInterfaceState({
+        isSuccess: () => !!data,
+        isLoading: () => loading,
+        isError: () => !!error,
+        isEmpty: () => !data,
+    });
 
     useDebounceEffect(
         () => {

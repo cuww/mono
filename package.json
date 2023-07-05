@@ -4,6 +4,7 @@
   "private": true,
   "workspaces": [
     "packages/cuww-runtime-env",
+    "packages/cuww-config",
     "packages/core"
   ],
   "scripts": {
@@ -12,9 +13,16 @@
     "prestart": "yarn cli env:build",
     "start": "next start",
     "lint": "next lint",
-    "cli": "node ./console/index.mjs"
+    "cli": "node ./console/index.mjs",
+    "build:all": "yarn build:env & yarn build:config",
+    "publish:all": "yarn publish:env & yarn publish:config",
+    "build:env": "yarn workspace @cuww/runtime-env build",
+    "publish:env": "yarn workspace @cuww/runtime-env publish --access public",
+    "build:config": "yarn workspace @cuww/config build",
+    "publish:config": "yarn workspace @cuww/config publish --access public"
   },
   "dependencies": {
+    "@cuww/runtime-env": "^1.0.2",
     "@types/node": "^20.3.1",
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
@@ -27,7 +35,8 @@
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-intl": "^6.4.4",
-    "typescript": "5.0.4"
+    "typescript": "5.0.4",
+    "yarn": "^1.22.19"
   },
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.13.3",

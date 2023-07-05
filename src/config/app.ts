@@ -1,7 +1,13 @@
-import { env } from '@cuww/runtime-env'
+import { LocalStorage } from "@@/cache/storage/local";
+import { Cache } from "@@/cache/index";
+import { useAlerts } from "@@/core/utils/api/alerts";
+import { useNotifications } from "@@/core/utils/api/notifications";
 
 export default {
-    NEXT_PUBLIC_TEST: env('NEXT_PUBLIC_TEST', 'no value'),
-    NEXT_PUBLIC_WEBPACK: env('NEXT_PUBLIC_WEBPACK', 'no value'),
-    APP_NAME: env('APP_NAME', 'no value'),
+    notificationsApi: useNotifications,
+    alertsApi: useAlerts,
+    cache: new Cache(new LocalStorage()),
+    analytics: (key: any, payload: any) => {
+        console.log('[analytics]', key, payload);
+    },
 }
