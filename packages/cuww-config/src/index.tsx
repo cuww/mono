@@ -1,4 +1,4 @@
-import { FC, createContext } from "react";
+import { FC, createContext, useContext } from "react";
 
 export type AppConfig = {
     notificationsApi?: any;
@@ -22,7 +22,7 @@ export const defaultConfig: AppConfig = {
 
 export type AppConfigProps = keyof AppConfig
 
-export const useAppConfig = (opt: AppConfig) => {
+export const prepareAppConfig = (opt: AppConfig) => {
     Object.keys(defaultConfig).map((key) => {
         if (!opt[key as AppConfigProps]) {
             throw new Error(`Config property ${key} is required`);
@@ -34,16 +34,17 @@ export const useAppConfig = (opt: AppConfig) => {
     return getConfig()
 }
 
-export const ConfigProviderContext = createContext({
-    
-});
+export const ConfigProviderContext = createContext({});
 
 export const ConfigProvider: FC<any> = ({ config, children }) => {
-    const value = useAppConfig(config);
-
     return (
-        <ConfigProviderContext.Provider value={value}>
+        <ConfigProviderContext.Provider value={prepareAppConfig(config)}>
             {children}
         </ConfigProviderContext.Provider>
     )
+}
+
+export const useConfig = () => {
+    const config = useContext<AppConfig>(ConfigProviderContext);
+    return config;
 }

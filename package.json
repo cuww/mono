@@ -19,7 +19,10 @@
     "build:env": "yarn workspace @cuww/runtime-env build",
     "publish:env": "yarn workspace @cuww/runtime-env publish --access public",
     "build:config": "yarn workspace @cuww/config build",
-    "publish:config": "yarn workspace @cuww/config publish --access public"
+    "publish:config": "yarn workspace @cuww/config publish --access public",
+    "version:patch": "yarn workspaces run version:patch",
+    "version:minor": "yarn workspaces run version:minor",
+    "version:major": "yarn workspaces run version:major"
   },
   "dependencies": {
     "@cuww/runtime-env": "^1.0.2",
