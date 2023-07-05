@@ -1,0 +1,28 @@
+{
+  "name": "@cuww/cli",
+  "version": "1.0.5",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cuww/mono/tree/main/packages/cuww-cli",
+    "directory": "packages/cuww-cli"
+  },
+  "license": "MIT",
+  "author": "Kir Burkhanov <lastonoga@gmail.com>",
+  "scripts": {
+    "build": "rm -rf ./dist & tsc -p tsconfig.json",
+    "version:patch": "yarn version --patch",
+    "version:minor": "yarn version --minor",
+    "version:major": "yarn version --major"
+  },
+  "dependencies": {
+    "@cuww/runtime-env": "^1.0.4",
+    "chalk": "^5.3.0",
+    "typescript": "^5.1.5"
+  }
+}
