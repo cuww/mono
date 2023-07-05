@@ -1,4 +1,4 @@
-import { Command } from '../../packages/cli/base.mjs'
+import { Command } from '@cuww/cli'
 
 export class HelloCommand extends Command {
     cli = 'hello';

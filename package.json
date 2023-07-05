@@ -5,6 +5,7 @@
   "workspaces": [
     "packages/cuww-runtime-env",
     "packages/cuww-config",
+    "packages/cuww-cli",
     "packages/core"
   ],
   "scripts": {
@@ -14,12 +15,14 @@
     "start": "next start",
     "lint": "next lint",
     "cli": "node ./console/index.mjs",
-    "build:all": "yarn build:env & yarn build:config",
-    "publish:all": "yarn publish:env & yarn publish:config",
+    "build:all": "yarn build:env & yarn build:config & yarn build:cli",
+    "publish:all": "yarn publish:env & yarn publish:config & yarn publish:cli",
     "build:env": "yarn workspace @cuww/runtime-env build",
     "publish:env": "yarn workspace @cuww/runtime-env publish --access public",
     "build:config": "yarn workspace @cuww/config build",
     "publish:config": "yarn workspace @cuww/config publish --access public",
+    "build:cli": "yarn workspace @cuww/cli build",
+    "publish:cli": "yarn workspace @cuww/cli publish --access public",
     "version:patch": "yarn workspaces run version:patch",
     "version:minor": "yarn workspaces run version:minor",
     "version:major": "yarn workspaces run version:major"
@@ -43,7 +46,6 @@
   },
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.13.3",
-    "babel-plugin-import": "^1.13.6",
-    "chalk": "^5.2.0"
+    "babel-plugin-import": "^1.13.6"
   }
 }
