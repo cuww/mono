@@ -1,21 +1,17 @@
 import chalk from 'chalk';
 import { BuildEnvCommand } from './commands/env';
+import { Command } from './command'
 
 const args = process.argv
 
-export class Command {
-  cli = 'task:empty';
-  description = 'Empty command';
-  options = [];
-
-  handle(args: any) {
-      console.log('Empty command', args);
-  }
-}
 
 let commands: Command[] = [
   new BuildEnvCommand(),
 ]
+
+export {
+  Command,
+}
 
 export const getCommands = () => {
   return commands.sort((a, b) => a.cli.localeCompare(b.cli));

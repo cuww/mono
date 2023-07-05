@@ -60,9 +60,15 @@ export class HelloCommand extends Command {
 {
     ...
     "scripts": {
-        "cli": "node ./cli/index.mjs",
+        "cuww": "node ./cli/index.mjs",
     }
 }
+```
+
+### Run
+
+```bash
+yarn cuww help
 ```
 
 

@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "composite": true,
-    "target": "es5",
+    "target": "es6",
+    "module": "commonjs",
     "lib": [
       "dom",
       "dom.iterable"
@@ -11,9 +12,8 @@
     "strict": true,
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
+    "moduleResolution": "nodenext",
     "resolveJsonModule": true,
-    "jsx": "react-jsx",
     "outDir": "./dist",
     "rootDir": "src"
   },
@@ -23,5 +23,6 @@
   ],
   "exclude": [
     "node_modules",
+    "./dist",
   ]
 }

@@ -1,4 +1,4 @@
-import { Command } from '../'
+import { Command } from '../command'
 import { buildEnvConfig } from '@cuww/runtime-env/dist/next';
 
 export class BuildEnvCommand extends Command {
