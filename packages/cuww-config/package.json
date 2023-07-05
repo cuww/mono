@@ -1,6 +1,6 @@
 {
   "name": "@cuww/config",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -16,9 +16,9 @@
   "scripts": {
     "prebuild": "rm -rf ./dist && rm -rf ./tsconfig.tsbuildinfo",
     "build": "tsc -p tsconfig.json",
-    "version:patch": "yarn version --patch",
-    "version:minor": "yarn version --minor",
-    "version:major": "yarn version --major"
+    "version:patch": "yarn version --no-git-tag-version --patch",
+    "version:minor": "yarn version --no-git-tag-version --minor",
+    "version:major": "yarn version --no-git-tag-version --major"
   },
   "dependencies": {
     "react": "^18.2.0",

@@ -16,7 +16,7 @@
     "lint": "next lint",
     "cli": "node ./console/index.mjs",
     "build:all": "yarn build:env && yarn build:config && yarn build:cli",
-    "publish:all": "yarn publish:env & yarn publish:config & yarn publish:cli",
+    "publish:all": "yarn publish:env && yarn publish:config && yarn publish:cli",
     "build:env": "yarn workspace @cuww/runtime-env build",
     "publish:env": "yarn workspace @cuww/runtime-env publish --access public",
     "build:config": "yarn workspace @cuww/config build",
