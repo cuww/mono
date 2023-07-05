@@ -14,7 +14,8 @@
   "license": "MIT",
   "author": "Kir Burkhanov <lastonoga@gmail.com>",
   "scripts": {
-    "build": "rm -rf ./dist & tsc -p tsconfig.json",
+    "prebuild": "rm -rf ./dist && rm -rf ./tsconfig.tsbuildinfo",
+    "build": "tsc -p tsconfig.json",
     "version:patch": "yarn version --patch",
     "version:minor": "yarn version --minor",
     "version:major": "yarn version --major"
