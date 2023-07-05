@@ -1,6 +1,6 @@
 {
   "name": "@cuww/runtime-env",
-  "version": "1.0.2",
+  "version": "1.0.4",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -14,7 +14,10 @@
   "license": "MIT",
   "author": "Kir Burkhanov <lastonoga@gmail.com>",
   "scripts": {
-    "build": "rm -rf ./dist & tsc -p tsconfig.json"
+    "build": "rm -rf ./dist & tsc -p tsconfig.json",
+    "version:patch": "yarn version --patch",
+    "version:minor": "yarn version --minor",
+    "version:major": "yarn version --major"
   },
   "dependencies": {
     "typescript": "^5.1.5"
