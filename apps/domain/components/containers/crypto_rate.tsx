@@ -1,14 +1,14 @@
 import { Alert, Button, Space, Spin } from "antd"
 import { FC } from "react"
 import { CurrencySelector } from "../currency/selector"
-import { getCurrencyRateService } from "@/apps/domain/services/currency"
-import { fromCurrencyAtom, toCurrencyAtom } from "@/apps/domain/store/currency"
+import { getCurrencyRateService } from "@apps/domain/services/currency"
+import { fromCurrencyAtom, toCurrencyAtom } from "@apps/domain/store/currency"
 import { useAtomValue } from "jotai"
 import { useDebounceEffect } from "ahooks"
 import { FormattedNumber } from "react-intl"
 import { useQueryController } from "@@/core/controllers"
 import { track, trackEvent } from "@@/analytics"
-import { ButtonClick } from "@/apps/domain/events/analytics/ButtonClick"
+import { ButtonClick } from "@apps/domain/events/analytics/ButtonClick"
 import { useInterfaceState } from "@@/core/controllers/ui"
 import { InvalidCurrencyPair } from "../../errors/InvalidCurrencyPair"
 
@@ -17,7 +17,7 @@ export const CryptoRateContainer: FC = () => {
     const toCurrencyValue = useAtomValue(toCurrencyAtom)
 
     const { run, context, loading, data, error } = useQueryController(() => {
-        return getCurrencyRateService(fromCurrencyValue, toCurrencyValue)
+        return getCurrencyRateService({ from: fromCurrencyValue, to: toCurrencyValue })
     }, [
         InvalidCurrencyPair
     ])
@@ -52,6 +52,11 @@ export const CryptoRateContainer: FC = () => {
                         name: 'test',
                     }
                 })}>Test Event</Button>
+                {/* <StateLayers>
+                    <StateLayer.Loading>
+
+                    </StateLayer.Loading>
+                </StateLayers> */}
                 {isEmpty && (
                     'No Data'
                 )}

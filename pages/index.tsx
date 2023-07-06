@@ -1,6 +1,6 @@
-import { CryptoRateContainer } from '@/apps/domain'
-import { HomeLayout } from '@/layouts/home'
-import AppConfig from '@/config/app';
+import { CryptoRateContainer } from '@apps/domain'
+import { HomeLayout } from '@layouts/home'
+import AppConfig from '@config/env';
 import Head from 'next/head'
 
 export default function Home() {

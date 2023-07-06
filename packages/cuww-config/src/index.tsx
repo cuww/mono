@@ -1,16 +1,22 @@
 import { FC, createContext, useContext } from "react";
+import { IApplication } from '@cuww/app/src/types';
 
 export type AppConfig = {
+    app?: IApplication;
     notificationsApi?: any;
     alertsApi?: any;
-    cache?: Cache;
+    cache?: any;
     analytics?: Function;
 }
 
-export let _config: AppConfig = {};
+export let _config: AppConfig;
 
 export const getConfig = (): AppConfig => {
     return _config;
+}
+
+export const setConfig = (config: AppConfig) => {
+    _config = config;
 }
 
 export const defaultConfig: AppConfig = {
@@ -29,14 +35,21 @@ export const prepareAppConfig = (opt: AppConfig) => {
         }
     });
 
-    _config = { ...opt }
+    setConfig({
+        ...opt
+    });
 
     return getConfig()
 }
 
-export const ConfigProviderContext = createContext({});
+export const ConfigProviderContext = createContext({
+    ...defaultConfig
+});
 
-export const ConfigProvider: FC<any> = ({ config, children }) => {
+export const ConfigProvider: FC<any> = ({ app, children }) => {
+    let config = app._config;
+    config.app = app;
+
     return (
         <ConfigProviderContext.Provider value={prepareAppConfig(config)}>
             {children}

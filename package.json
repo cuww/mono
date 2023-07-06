@@ -6,7 +6,8 @@
     "packages/cuww-runtime-env",
     "packages/cuww-config",
     "packages/cuww-cli",
-    "packages/core"
+    "packages/core",
+    "packages/cuww-app"
   ],
   "scripts": {
     "dev": "next dev",

@@ -1,15 +1,14 @@
 {
-  "name": "@cuww/cli",
+  "name": "@cuww/app",
   "version": "1.0.7",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "src/index.ts",
   "files": [
-    "dist"
+    "src"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/cuww/mono/tree/main/packages/cuww-cli",
-    "directory": "packages/cuww-cli"
+    "url": "https://github.com/cuww/mono/tree/main/packages/cuww-app",
+    "directory": "packages/cuww-app"
   },
   "license": "MIT",
   "author": "Kir Burkhanov <lastonoga@gmail.com>",

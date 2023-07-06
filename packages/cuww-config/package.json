@@ -1,6 +1,6 @@
 {
   "name": "@cuww/config",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -21,6 +21,7 @@
     "version:major": "yarn version --no-git-tag-version --major"
   },
   "dependencies": {
+    "@cuww/app": "^1.0.0",
     "react": "^18.2.0",
     "typescript": "^5.1.5"
   }

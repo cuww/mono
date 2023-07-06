@@ -92,9 +92,9 @@ export type AppProvider = {
 
 
 export const withApps = async (fn: Function) => {
-    const { Apps } = await import('@/apps');
-    useApps(Apps);
-    return await fn();
+    // const { Apps } = await import('@apps/');
+    // useApps(Apps);
+    // return await fn();
 }
 
 export const AppProvider = ({ children, apps, locale = 'en', config = {} }: AppProvider) => {

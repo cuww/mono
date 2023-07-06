@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { useErrorNotifications } from "@@/core/errors";
+import { useErrorNotifications } from "@cuww/app/src/errors";
 import { FormattedMessage } from "react-intl";
 
 export const useQueryController = (service: any, errors: any[] = [], useErrorHook = useErrorNotifications) => {

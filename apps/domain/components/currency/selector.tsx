@@ -1,5 +1,5 @@
-import { useSelectController } from "@/apps/domain/controllers/select";
-import { BinanceCurrency } from "@/apps/domain/store/currency";
+import { useSelectController } from "@apps/domain/controllers/select";
+import { BinanceCurrency } from "@apps/domain/store/currency";
 import { Select } from "antd"
 import { CurrencyPath } from "../../messages";
 import { LabelView } from "../../views/label";

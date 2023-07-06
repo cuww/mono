@@ -1,5 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import { InvalidCurrencyPair } from '@/apps/domain/errors/InvalidCurrencyPair';
+import { InvalidCurrencyPair } from '@apps/domain/errors/InvalidCurrencyPair';
 import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = {

@@ -20,6 +20,11 @@
     "jsx": "preserve",
     "incremental": true,
     "paths": {
+      "@apps/*": ["./apps/*"],
+      "@config/*": ["./config/*"],
+      "@layouts/*": ["./layouts/*"],
+      "@theme/*": ["./theme/*"],
+      "@bootstrap/*": ["./bootstrap/*"],
       "@/*": [
         "./src/*"
       ],

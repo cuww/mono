@@ -1,19 +1,15 @@
 import { ConfigProvider } from 'antd'
 import type { AppProps } from 'next/app'
-import { CustomTheme } from '@/theme'
+import { CustomTheme } from '@theme/index'
 /** Apps */
-import { AppProvider } from '@@/core/app';
-import { useRouter } from 'next/router';
-import { Apps } from '@/apps';
+import { AppProvider } from '@cuww/app/src/provider';
+import { app } from '@bootstrap/app';
 // import '@@/analytics/analytics.css'
-import AppConfig from "@/config/app";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const router = useRouter();
-
   return (
     <ConfigProvider theme={CustomTheme}>
-      <AppProvider apps={Apps} config={AppConfig}>
+      <AppProvider app={app}>
         <Component {...pageProps} />
       </AppProvider>
     </ConfigProvider>
