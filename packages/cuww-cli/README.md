@@ -31,12 +31,13 @@ Follow these steps:
 Create `cli/index.mjs` in the project root
 
 ```typescript
-import { run, addCommand } from '@cuww/cli';
+import { boot } from '@cuww/cli';
 import { HelloCommand } from './commands/hello.mjs';
 
-addCommand(new HelloCommand())
 
-run()
+boot((command) => {
+    command(new HelloCommand())
+})
 ```
 
 

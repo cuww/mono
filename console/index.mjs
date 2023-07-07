@@ -1,6 +1,6 @@
-import { run, addCommand } from '@cuww/cli';
+import { boot } from '@cuww/cli';
 import { HelloCommand } from './commands/hello.mjs';
 
-addCommand(new HelloCommand())
-
-run()
+boot((command) => {
+    command(new HelloCommand())
+})

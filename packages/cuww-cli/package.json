@@ -1,6 +1,6 @@
 {
   "name": "@cuww/cli",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
@@ -22,7 +22,9 @@
   },
   "dependencies": {
     "@cuww/runtime-env": "^1.0.4",
+    "@types/yargs": "^17.0.24",
     "chalk": "4.1.2",
-    "typescript": "^5.1.5"
+    "typescript": "^5.1.5",
+    "yargs": "^17.7.2"
   }
 }

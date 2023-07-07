@@ -15,6 +15,7 @@
     "prestart": "yarn cli env:build",
     "start": "next start",
     "lint": "next lint",
+    "cuww": "yarn -s run cli",
     "cli": "node ./console/index.mjs",
     "build:all": "yarn build:env && yarn build:config && yarn build:cli",
     "publish:all": "yarn publish:env && yarn publish:config && yarn publish:cli",

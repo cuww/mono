@@ -1,8 +1,8 @@
 import chalk from 'chalk';
 import { BuildEnvCommand } from './commands/env';
 import { Command } from './command'
-
-const args = process.argv
+import yargs from 'yargs'
+import { hideBin } from 'yargs/helpers'
 
 
 let commands: Command[] = [
@@ -21,48 +21,48 @@ export const addCommand = (command: Command) => {
   commands.push(command);
 }
 
-// usage represents the help guide
-const usage = function () {
-  const usageText = `
-  @@core helps you manage frontend project
-
-  usage:
-    yarn cli <command>
-
-    commands can be:
-  `
-
-  console.log(usageText)
+const start = () => {
+  let instance = yargs(hideBin(process.argv))
+    .scriptName('')
+    .usage('@cuww/cli is designed to provide a cool way to manage your applications')
 
   getCommands().map(command => {
-    console.log(`  ${chalk.green(command.cli)} – ${command.description}`)
-  });
+    instance.command(
+      chalk.green(command.cli),
+      command.description
+    )
+    instance.command(
+      command.cli,
+      false,
+      () => {},
+      command.handle
+    )
+  })
+  instance
+    .demandCommand(1)
+    .parse()
+    
+  // if (args[2] == 'help') {
+  //   return usage()
+  // }
+
+  // let findCommands = getCommands().filter(command => {
+  //   return command.cli == args[2]
+  // });
+
+  // if (findCommands.length == 0) {
+  //   errorLog('invalid command passed')
+  //   return usage()
+  // }
+
+  // return findCommands[0].handle(args.slice(3))
 }
 
-// used to log errors to the console in red color
-function errorLog(error: any) {
-  console.log(chalk.red(error))
-}
+export type bootTemp = (addCmd: typeof addCommand) => void;
 
-const start = () => {
-  if (args[2] == 'help') {
-    return usage()
-  }
-
-  let findCommands = getCommands().filter(command => {
-    return command.cli == args[2]
-  });
-
-  if (findCommands.length == 0) {
-    errorLog('invalid command passed')
-    return usage()
-  }
-
-  return findCommands[0].handle(args.slice(3))
-}
-
-export const run = () => {
+export const boot = (bootTemp: bootTemp) => {
   console.log('')
+  bootTemp(addCommand);
   start();
   console.log('')
 }

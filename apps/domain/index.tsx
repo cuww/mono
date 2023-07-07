@@ -5,8 +5,6 @@ import { InvalidCurrencyPair } from './errors/InvalidCurrencyPair'
 import { getCurrencyRateService } from './services/currency';
 import { DomainAppBoot } from '@cuww/app/src';
 
-export const DOMAIN_NAME = 'Domain';
-
 export const boot: DomainAppBoot = (app) => {
     app.addMessages({
         Errors,
